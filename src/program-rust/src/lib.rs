@@ -16,6 +16,7 @@ pub struct GreetingAccount {
 }
 
 // Declare and export the program's entrypoint
+// this is related to line 13 in the cargo.toml file
 entrypoint!(process_instruction);
 
 // Program entrypoint's implementation
@@ -24,9 +25,17 @@ pub fn process_instruction(
     accounts: &[AccountInfo], // The account to say hello to
     _instruction_data: &[u8], // Ignored, all helloworld instructions are hellos
 ) -> ProgramResult {
-    msg!("Hello World Rust program entrypoint");
+    
+    // B - had to double check syntax to declare a string lol
+    let name = String::from("Brendan");
+
+    // B - does this string interpolation work?
+    msg!("Entrypoint to {name} greeting");
 
     // Iterating accounts is safer than indexing
+    // B - very interesting that the order of accounts input is important
+    // i guess this makes sense but i could see a contract helper that
+    // allows for unordered account input maybe
     let accounts_iter = &mut accounts.iter();
 
     // Get the account to say hello to
@@ -34,13 +43,25 @@ pub fn process_instruction(
 
     // The account must be owned by the program in order to modify its data
     if account.owner != program_id {
+
         msg!("Greeted account does not have the correct program id");
+        msg!("Account owner is {account.owner} but the program id is {program_id}")
+
+        // B - I have a feeling it will take me a long time to become comfortable with
+        // error handling
         return Err(ProgramError::IncorrectProgramId);
     }
 
     // Increment and store the number of times the account has been greeted
+
+    // B - hmmmmm is .borrow() a native rust function for handling the data pointer?
+    // and is try_from_slice a function from borsch thats used by the GreetingAccount struct?
     let mut greeting_account = GreetingAccount::try_from_slice(&account.data.borrow())?;
+
+    // B - here is the core logic -> later do something creative here
     greeting_account.counter += 1;
+
+    // B - oh lord the mut mut borrow mut
     greeting_account.serialize(&mut &mut account.data.borrow_mut()[..])?;
 
     msg!("Greeted {} time(s)!", greeting_account.counter);
@@ -49,6 +70,9 @@ pub fn process_instruction(
 }
 
 // Sanity tests
+
+// B - how is this text code handled at deployment?
+// do builds ignore all code under the `#[cfg(test)]` declaration?
 #[cfg(test)]
 mod test {
     use super::*;
