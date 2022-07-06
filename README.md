@@ -11,6 +11,11 @@ Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=git
 https://travis-ci.org/solana-labs/example-helloworld.svg?branch=master
 [travis-url]: https://travis-ci.org/solana-labs/example-helloworld
 
+
+# "Hello Solana" - Brendan
+
+Below is the readme of the original template
+
 # Hello world on Solana
 
 This project demonstrates how to use the [Solana Javascript
