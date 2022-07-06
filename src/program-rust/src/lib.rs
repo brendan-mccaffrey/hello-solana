@@ -25,7 +25,7 @@ pub fn process_instruction(
     accounts: &[AccountInfo], // The account to say hello to
     _instruction_data: &[u8], // Ignored, all helloworld instructions are hellos
 ) -> ProgramResult {
-    
+
     // B - had to double check syntax to declare a string lol
     let name = String::from("Brendan");
 
@@ -67,6 +67,9 @@ pub fn process_instruction(
     msg!("Greeted {} time(s)!", greeting_account.counter);
 
     Ok(())
+
+    // B - damn, I cant wait to look back on this like how dumb I was
+    // I hate that it takes me a little while to lern new syntax.. feel like an idiot
 }
 
 // Sanity tests
