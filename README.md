@@ -18,6 +18,9 @@ Below is the readme of the original template
 
 Devnet deployment of HelloWorld: 2PSPYxXirbJ5bK5jCNJVAGp7oUkZ7fjXcXgsPUvQidUN
 
+lol my string interpolation wasn't correct
+[Image of Logs](assets/devnet-log-confirmation.png)
+
 # Hello world on Solana
 
 This project demonstrates how to use the [Solana Javascript
