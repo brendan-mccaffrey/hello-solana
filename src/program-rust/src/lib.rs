@@ -25,7 +25,6 @@ pub fn process_instruction(
     accounts: &[AccountInfo], // The account to say hello to
     _instruction_data: &[u8], // Ignored, all helloworld instructions are hellos
 ) -> ProgramResult {
-
     // B - had to double check syntax to declare a string lol
     let name = String::from("Brendan");
 
@@ -43,9 +42,8 @@ pub fn process_instruction(
 
     // The account must be owned by the program in order to modify its data
     if account.owner != program_id {
-
         msg!("Greeted account does not have the correct program id");
-        msg!("Account owner is {account.owner} but the program id is {program_id}")
+        msg!("Account owner is {account.owner} but the program id is {program_id}");
 
         // B - I have a feeling it will take me a long time to become comfortable with
         // error handling

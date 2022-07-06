@@ -16,6 +16,8 @@ https://travis-ci.org/solana-labs/example-helloworld.svg?branch=master
 
 Below is the readme of the original template
 
+Devnet deployment of HelloWorld: 2PSPYxXirbJ5bK5jCNJVAGp7oUkZ7fjXcXgsPUvQidUN
+
 # Hello world on Solana
 
 This project demonstrates how to use the [Solana Javascript
