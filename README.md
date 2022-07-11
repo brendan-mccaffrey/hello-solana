@@ -21,6 +21,10 @@ Devnet deployment of HelloWorld: 2PSPYxXirbJ5bK5jCNJVAGp7oUkZ7fjXcXgsPUvQidUN
 lol my string interpolation wasn't correct
 ![Image of Logs](./assets/devnet-log-confirmation.png)
 
+### Update
+
+Okay I think I've gotten all the value I needed from this - going to move on to a hello world anchor project, and then do a more complex rust/anchor project afterwards.
+
 # Hello world on Solana
 
 This project demonstrates how to use the [Solana Javascript
